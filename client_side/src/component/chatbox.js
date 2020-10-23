@@ -41,16 +41,16 @@ export default class chatBox extends Component {
     
     const message = {
       
-      email: this.state.email,
-      email: this.state.emailClient,
-      text: this.state.text,
+      emailClient: this.state.email,
+      emailClientCustomer: this.state.emailClient,
+      message: this.state.text,
      
     };
 
     
 
     axios
-      .post("http://localhost:5001/message/add", message)
+      .post("http://localhost:4000/message/clientCustomerMessage", message)
       .then((res) => console.log(res.data));
    
   }
@@ -59,36 +59,36 @@ export default class chatBox extends Component {
     return (
         <>
         
-        <input type="email" placeholder={this.state.email} onChage={this.onChangeEmail} required/>
-        <input type="email" placeholder={this.state.emailClient} onChage={this.onChangeEmailClient} required/>
-        <div class="chatbox">
-    		<div class="chatlogs">
-			<div class="chat friend">
-				<div class="user-photo"></div>
-				<p class="chat-message">Hi</p>	
+        <input type="email" placeholder={this.state.email} onChange={this.onChangeEmail} required/>
+        <input type="email" placeholder={this.state.emailClient} onChange={this.onChangeEmailClient} required/>
+        <div className="chatbox">
+    		<div className="chatlogs">
+			<div className="chat friend">
+				<div className="user-photo"></div>
+				<p className="chat-message">Hi</p>	
 			</div>
-			<div class="chat friend">
-				<div class="user-photo"></div>
-				<p class="chat-message">What's up?</p>	
+			<div className="chat friend">
+				<div className="user-photo"></div>
+				<p className="chat-message">What's up?</p>	
 			</div>
-			<div class="chat self">
-				<div class="user-photo"></div>
-				<p class="chat-message">Hi, nothing much</p>	
+			<div className="chat self">
+				<div className="user-photo"></div>
+				<p className="chat-message">Hi, nothing much</p>	
 			</div>
-			<div class="chat self">
-				<div class="user-photo"></div>
-				<p class="chat-message">What's up?</p>	
+			<div className="chat self">
+				<div className="user-photo"></div>
+				<p className="chat-message">What's up?</p>	
 			</div>
-			<div class="chat friend">
-				<div class="user-photo"></div>
-				<p class="chat-message">
+			<div className="chat friend">
+				<div className="user-photo"></div>
+				<p className="chat-message">
 				Nothing much
 				</p>	
 			</div>
 		</div>
-		<div class="chat-form">
-    <textarea  onchage={this.onChageText}>{this.state.text}</textarea>
-			<button onClick="submit">Send</button>
+		<div className="chat-form">
+    <textarea  onChange={this.onChangeText} >{this.state.text}</textarea>
+			<button onClick={this.submit}>Send</button>
 		</div>
 	</div>
     </>
